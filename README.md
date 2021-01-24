@@ -8,11 +8,20 @@ springboot-2.4.2
 mybatis-2.1.4
 
 DB  
-mysql-8.0.23
+mysql-8.0.23 
+```
+# 数据库只包含一个表order
+CREATE TABLE `order`  (
+  `order_no` int NOT NULL AUTO_INCREMENT,
+  `order_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`order_no`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+```
 
 JDK  
 openJDK-15  
 
+### 项目目录结构如下
 ```
 |-- src
     |-- main
