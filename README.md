@@ -1,6 +1,7 @@
 # demo
 这是一个springboot最简单的webapi项目，只有订单查询一个接口  
-  
+项目中的dao及entity下的文件是由MybatisX插件自动生成  
+由于springboot集成了tomcat，导入项目打包后直接启动DemoApplication.java即可  
   
 项目版本相关  
 springboot-2.4.2  
@@ -8,3 +9,43 @@ mybatis-2.1.4
 
 DB  
 mysql-8.0.23
+
+JDK  
+openJDK-15  
+
+```
+|-- src
+    |-- main
+    |   |-- java
+    |   |   |-- com
+    |   |       |-- toj
+    |   |           |-- demo
+    |   |               |-- DemoApplication.java                    --项目启动类
+    |   |               |-- component
+    |   |               |   |-- OrderSearchComponent.java           --订单查询component
+    |   |               |-- controller
+    |   |               |   |-- OrderSearchController.java          --订单查询controller
+    |   |               |   |-- result
+    |   |               |       |-- OrderResult.java                --返回结果类
+    |   |               |-- dao
+    |   |               |   |-- OrderDao.java                       --订单Dao(由MyBatisX自动生成)
+    |   |               |-- entity
+    |   |               |   |-- Order.java                          --订单实体类((由MyBatisX自动生成))
+    |   |               |-- service
+    |   |                   |-- OrderSearchService.java             --订单查询service层
+    |   |-- resources
+    |       |-- application.properties                              --数据库配置信息
+    |       |-- com
+    |       |   |-- toj
+    |       |       |-- demo
+    |       |           |-- dao
+    |       |               |-- OrderDao.xml                        --订单查询SQL(由MyBatisX自动生成)
+    |       |-- static                                              --由于项目无js,img静态资源文件等，此文件夹为空
+    |       |-- templates                                           --由于项目无页面，此文件夹为空
+    |-- test                                                        --测试文件夹说明略
+        |-- java
+            |-- com
+                |-- example
+                |-- toj
+                    |-- demo
+                        |-- DemoApplicationTests.java
