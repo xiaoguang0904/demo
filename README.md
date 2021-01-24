@@ -135,7 +135,7 @@ INSERT INTO `order` (`order_no`, `order_desc`) VALUES (3, 'desc3');
 http://localhost:8080/order/search?id=1
 ```
 
-### 成功的返回结果(json格式)
+### 返回结果:成功(json格式)
 ```
 {
     "result": "SUCCESS", 
@@ -144,7 +144,7 @@ http://localhost:8080/order/search?id=1
 }
 ```
 
-### 失败的返回结果(json格式)
+### 返回结果:失败(json格式)
 ```
 {
     "result": "FAILED"
