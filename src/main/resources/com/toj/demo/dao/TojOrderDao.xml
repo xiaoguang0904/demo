@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.toj.demo.dao.OrderDao">
-  <resultMap id="BaseResultMap" type="com.toj.demo.entity.Order">
+<mapper namespace="com.toj.demo.dao.TojOrderDao">
+  <resultMap id="BaseResultMap" type="com.toj.demo.entity.TojOrder">
     <!--@mbg.generated-->
     <id column="order_no" jdbcType="INTEGER" property="orderNo" />
     <result column="order_desc" jdbcType="VARCHAR" property="orderDesc" />
@@ -12,24 +12,24 @@
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
-    select
+    select 
     <include refid="Base_Column_List" />
-    from toj.order
+    from toj_order
     where order_no = #{orderNo,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--@mbg.generated-->
-    delete from toj.order
+    delete from toj_order
     where order_no = #{orderNo,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="order_no" keyProperty="orderNo" parameterType="com.toj.demo.entity.Order" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="order_no" keyProperty="orderNo" parameterType="com.toj.demo.entity.TojOrder" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into toj.order (order_desc)
+    insert into toj_order (order_desc)
     values (#{orderDesc,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="order_no" keyProperty="orderNo" parameterType="com.toj.demo.entity.Order" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="order_no" keyProperty="orderNo" parameterType="com.toj.demo.entity.TojOrder" useGeneratedKeys="true">
     <!--@mbg.generated-->
-    insert into toj.order
+    insert into toj_order
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderDesc != null">
         order_desc,
@@ -41,9 +41,9 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.toj.demo.entity.Order">
+  <update id="updateByPrimaryKeySelective" parameterType="com.toj.demo.entity.TojOrder">
     <!--@mbg.generated-->
-    update toj.order
+    update toj_order
     <set>
       <if test="orderDesc != null">
         order_desc = #{orderDesc,jdbcType=VARCHAR},
@@ -51,9 +51,9 @@
     </set>
     where order_no = #{orderNo,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.toj.demo.entity.Order">
+  <update id="updateByPrimaryKey" parameterType="com.toj.demo.entity.TojOrder">
     <!--@mbg.generated-->
-    update toj.order
+    update toj_order
     set order_desc = #{orderDesc,jdbcType=VARCHAR}
     where order_no = #{orderNo,jdbcType=INTEGER}
   </update>
