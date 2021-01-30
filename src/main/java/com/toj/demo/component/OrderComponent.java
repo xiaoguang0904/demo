@@ -26,7 +26,7 @@ public class OrderComponent {
     }
 
     /**
-     * DBからオーダーエンティティを取得
+     * DBからオーダーエンティティを追加
      * @param tojOrder　オーダー情報
      * @return 変更数
      */

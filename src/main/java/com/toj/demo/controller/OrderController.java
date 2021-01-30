@@ -80,7 +80,7 @@ public class OrderController {
         OrderResult result = new OrderResult();
 
         try {
-            // オーダ情報を追加
+            // オーダ情報を更新
             service.updateOrder(tojOrder);
             // 成功の場合
             result.setResult("SUCCESS");
@@ -100,7 +100,7 @@ public class OrderController {
      */
     @RequestMapping(value="/delete",method = { GET, POST })
     public OrderResult delete(@RequestParam(value="id",required = true) Integer id){
-        // 検索結果を新規
+        // 検索結果を削除
         OrderResult result = new OrderResult();
 
         try {
