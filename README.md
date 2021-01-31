@@ -23,24 +23,24 @@ openJDK-15
     |   |           |-- demo
     |   |               |-- DemoApplication.java                    --项目启动类
     |   |               |-- component
-    |   |               |   |-- OrderSearchComponent.java           --订单查询component
+    |   |               |   |-- OrderComponent.java                 --订单操作(增加，删除，查询，更新)component
     |   |               |-- controller
-    |   |               |   |-- OrderSearchController.java          --订单查询controller
+    |   |               |   |-- OrderController.java                --订单操作(增加，删除，查询，更新)controller
     |   |               |   |-- result
     |   |               |       |-- OrderResult.java                --返回结果类
     |   |               |-- dao
-    |   |               |   |-- OrderDao.java                       --订单Dao(由MyBatisX自动生成)
+    |   |               |   |-- TojOrderDao.java                    --订单Dao(由MyBatisX自动生成)
     |   |               |-- entity
-    |   |               |   |-- Order.java                          --订单实体类((由MyBatisX自动生成))
+    |   |               |   |-- TojOrder.java                       --订单实体类((由MyBatisX自动生成))
     |   |               |-- service
-    |   |                   |-- OrderSearchService.java             --订单查询service层
+    |   |                   |-- OrderService.java                   --订单操作(增加，删除，查询，更新)service
     |   |-- resources
     |       |-- application.properties                              --数据库配置信息
     |       |-- com
     |       |   |-- toj
     |       |       |-- demo
     |       |           |-- dao
-    |       |               |-- OrderDao.xml                        --订单查询SQL(由MyBatisX自动生成)
+    |       |               |-- TojOrderDao.xml                     --订单相关SQL(由MyBatisX自动生成)
     |       |-- static                                              --由于项目无js,img静态资源文件等，此文件夹为空
     |       |-- templates                                           --由于项目无页面，此文件夹为空
     |-- test                                                        --测试文件夹说明略
@@ -54,22 +54,32 @@ openJDK-15
 ### 数据库建表如下
 ```
 # 数据库只包含一个表order
-CREATE TABLE `order`  (
+CREATE TABLE `toj_order`  (
   `order_no` int NOT NULL AUTO_INCREMENT,
   `order_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`order_no`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 ```
 
-### 插入数据如下
-```
-INSERT INTO `order` (`order_no`, `order_desc`) VALUES (1, 'desc1');
-INSERT INTO `order` (`order_no`, `order_desc`) VALUES (2, 'desc2');
-INSERT INTO `order` (`order_no`, `order_desc`) VALUES (3, 'desc3');
-```
 
 ### 请求URL
 ```
+############增加###############
+http://localhost:8080/order/add
+请求参数
+{
+    "orderDesc": "desc1"                  
+}
+############删除###############
+http://localhost:8080/order/delete?id=1
+############更新###############
+http://localhost:8080/order/update
+请求参数
+{
+    "orderNo": "1",                       
+    "orderDesc": "desc1"          
+}
+############查询###############
 http://localhost:8080/order/search?id=1
 ```
 
@@ -77,8 +87,8 @@ http://localhost:8080/order/search?id=1
 ```
 {
     "result": "SUCCESS", 
-    "id": "1", 
-    "desc": "desc1"
+    "id": "1",                       --只有查询时返回
+    "desc": "desc1"                  --只有查询时返回
 }
 ```
 
