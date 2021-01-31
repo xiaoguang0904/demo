@@ -1,5 +1,5 @@
 # demo
-这是一个springboot最简单的webapi项目，只有订单查询一个接口（返回json格式）  
+这是一个基于springboot的webapi项目，只有订单增，删，改，查四个接口（返回json格式）  
 项目中的dao及entity下的文件是由MybatisX插件自动生成  
 由于springboot集成了tomcat，导入项目打包后直接启动DemoApplication.java即可  
   
@@ -53,7 +53,7 @@ openJDK-15
 ```
 ### 数据库建表如下
 ```
-# 数据库只包含一个表order
+# 数据库只包含一个表toj_order
 CREATE TABLE `toj_order`  (
   `order_no` int NOT NULL AUTO_INCREMENT,
   `order_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
